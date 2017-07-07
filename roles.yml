@@ -1,0 +1,4 @@
+- src: git+git://github.com/rcarrillocruz/ansible-role-devstack
+- src: git+git://git.openstack.org/openstack/ansible-role-cloud-launcher
+- src: git+git://git.openstack.org/openstack/ansible-role-zookeeper
+- src: git+git://git.openstack.org/openstack/ansible-role-nodepool

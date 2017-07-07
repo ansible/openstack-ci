@@ -1,0 +1,24 @@
+---
+- hosts: localhost
+  connection: local
+
+  tasks:
+    - include_vars: defaults.yml
+    - include_role:
+        name: ansible-role-devstack
+      when: deploy_devstack == True
+    - user:
+        name: nodepool
+        home: /var/lib/nodepool
+        generate_ssh_key: yes
+      become: yes
+    - include_vars: files/resources.yml
+    - include_role:
+        name: ansible-role-cloud-launcher
+      become: yes
+    - include_role:
+        name: ansible-role-zookeeper
+    - include_role:
+        name: ansible-role-nodepool
+      vars:
+        nodepool_file_nodepool_yaml_src: 'files/nodepool.yaml'

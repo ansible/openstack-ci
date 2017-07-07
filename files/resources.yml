@@ -1,0 +1,16 @@
+clouds:
+  - name: devstack
+    images:
+      - name: xenial
+        download_image_url: https://cloud-images.ubuntu.com/xenial/current/xenial-server-cloudimg-amd64-disk1.img
+        download_image_dest: .
+        filename: ./xenial-server-cloudimg-amd64-disk1.img
+    keypairs:
+      - name: nodepool
+        public_key_file: /var/lib/nodepool/.ssh/id_rsa.pub
+    security_groups_rules:
+      - security_group: default
+        protocol: tcp
+        port_range_min: 22
+        port_range_max: 22
+        remote_ip_prefix: 0.0.0.0/0
