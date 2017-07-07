@@ -8,6 +8,16 @@ clouds:
     keypairs:
       - name: nodepool
         public_key_file: /var/lib/nodepool/.ssh/id_rsa.pub
+    networks:
+      - name: private2
+      - name: private3
+    subnets:
+      - name: private-subnet2
+        network_name: private2
+        cidr: 10.0.1.0/24
+      - name: private-subnet3
+        network_name: private3
+        cidr: 10.0.2.0/24
     security_groups_rules:
       - security_group: default
         protocol: tcp
